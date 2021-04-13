@@ -1,0 +1,23 @@
+*Understanding the requirements of Ex 2:
+
+core functionality: Serial input and output to be dealth with using interrupts
+
+
+
+function 1: Interrupt function
+
+function 2 (inside function 1??) : Set the parameters of the given serial port
+inputs: SCI0 or SCI1
+- sets the serial port
+- Parameters of the serial port defined in a struct
+output: none?
+
+a) read the serial port and store data in memory
+b) Write to serial port from stored memory
+
+
+
+Test cases:
+- Try the strings from lab 1 and see if they work?
+- "This is a string."
+- 
