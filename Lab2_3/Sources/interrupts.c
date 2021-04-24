@@ -1,6 +1,5 @@
 #include <hidef.h>      /* common defines and macros */
 #include "derivative.h"      /* derivative-specific definitions */
-
 #include "timers.h"
 
 #pragma CODE_SEG __NEAR_SEG NON_BANKED /* Interrupt section for this module. Placement will be in NON_BANKED area. */
@@ -9,6 +8,7 @@ __interrupt void UnimplementedISR(void)
    /* Unimplemented ISRs trap.*/
    asm BGND;
 }
+
 
 
 
@@ -61,10 +61,10 @@ const tIsrFunc _vect[] @0xFF80 = {     /* Interrupt table */
         UnimplementedISR,                 /* vector 0x13 */
         UnimplementedISR,                 /* vector 0x12 */
         UnimplementedISR,                 /* vector 0x11 */
-        UnimplementedISR,                 /* vector 0x10 (TOF) */
-        TC7_ISR,                          /* vector 0x0F (TIE, C7I)  */
-        UnimplementedISR,                 /* vector 0x0E (TIE, C6I)  */
-        UnimplementedISR,                 /* vector 0x0C (TIE, C5I)  */
+        UnimplementedISR, //implement for TOF                         /* vector 0x10 (TOF) */
+        UnimplementedISR,                          /* vector 0x0F (TIE, C7I)  */
+        UnimplementedISR,                          /* vector 0x0E (TIE, C6I)  */
+        TC5_ISR,                          /* vector 0x0C (TIE, C5I)  */
         UnimplementedISR,                 /* vector 0x0C (TIE, C4I)  */
         UnimplementedISR,                 /* vector 0x0B (TIE, C3I)  */
         UnimplementedISR,                 /* vector 0x0A (TIE, C2I)  */
@@ -77,5 +77,5 @@ const tIsrFunc _vect[] @0xFF80 = {     /* Interrupt table */
         UnimplementedISR,                 /* vector 0x03 */
         UnimplementedISR,                 /* vector 0x02 */
         UnimplementedISR,                 /* vector 0x01 */
-       // _Startup                          /* vector 0x00 (RESET) */
+       // _Startup                        /* vector 0x00 (RESET) */
    };
