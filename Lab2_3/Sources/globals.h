@@ -4,7 +4,7 @@
 // variables to be changed in interrupts
 extern int delay;
 extern int TOFcount;
-extern char flag;
+extern int flag;
 
 // all the goddamn notes (add for wider range of pieces)
 #define A3 6818
