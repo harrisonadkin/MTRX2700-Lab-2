@@ -17,7 +17,7 @@ E-clock = 24mHz
 ### TFLG2
 	-set flag when an interrupt condition occurred (when 16bit timer overflows from FFFF->0000)
 
-### Needs Count & Clear overflow
+## Needs Count & Clear overflow
 
 ### Initialize time overflow interrupt
 	-TOF count increment of 1
@@ -28,7 +28,7 @@ E-clock = 24mHz
 	-Overflow counted in TOF and each time time taken is calculated, we need to clear counter
 	-time taken = time count register – number of overflows*2^16
 				(can make interrupt every 2^16 counts)
-### Different Calculations
+## Different Calculations
 	-for example int addition
 		-time taken calculated by func above, using TCNT as input 
 		- f= e-clk/presclaer
