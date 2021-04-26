@@ -23,9 +23,9 @@ void Init_Math (void) {
   TSCR1 = 0b10000000;   // timer enable, stop in wait/freeze, no fast flag clear
   TSCR2 = 0b10000001;   // set prescalar to 2 
   TFLG2 = 0b10000000;
-  //TIOS &= 0b11101111;   // set channel 4 to input compare (clear bit 4 do nothing to others)
   
 }
+
 
 //create overflow counter scope just this file
 int TOFcount = 0;
@@ -50,10 +50,19 @@ __interrupt void TC5_ISR(void) {
   TC5 += frequency; // add delay time to output compare. plays note at correct frequency. 
 }
 
-
+// initialising timer overflow interrupt
 #pragma CODE_SEG __NEAR_SEG NON_BANKED 
 __interrupt void TOF_ISR(void) { 
   
   TOFcount += 1;
   TFLG2 |= 0b10000000; //reset flag 
 } 
+
+
+
+
+
+
+
+
+

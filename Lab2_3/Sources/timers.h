@@ -14,6 +14,7 @@ unsigned long calcTime(unsigned int time);
 #pragma CODE_SEG __NEAR_SEG NON_BANKED 
 __interrupt void TC5_ISR(void);
 #pragma CODE_SEG __NEAR_SEG NON_BANKED 
-__interrupt void TOF_ISR(void);  
+__interrupt void TOF_ISR(void); 
+
 
 #endif
