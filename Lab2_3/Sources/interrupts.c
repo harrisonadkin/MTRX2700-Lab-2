@@ -61,7 +61,7 @@ const tIsrFunc _vect[] @0xFF80 = {     /* Interrupt table */
         UnimplementedISR,                 /* vector 0x13 */
         UnimplementedISR,                 /* vector 0x12 */
         UnimplementedISR,                 /* vector 0x11 */
-        UnimplementedISR, //implement for TOF                         /* vector 0x10 (TOF) */
+        TOF_ISR,                         /* vector 0x10 (TOF) */
         UnimplementedISR,                          /* vector 0x0F (TIE, C7I)  */
         UnimplementedISR,                          /* vector 0x0E (TIE, C6I)  */
         TC5_ISR,                          /* vector 0x0C (TIE, C5I)  */

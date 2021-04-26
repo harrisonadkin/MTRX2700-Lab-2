@@ -2,9 +2,12 @@
 #define GLOBAL_HEADER
 
 // variables to be changed in interrupts
-extern int delay;
-extern int TOFcount;
+extern int frequency;
 extern int flag;
+extern int timeRemaining;
+extern int notesRemaining;
+#define bufferSize 24
+
 
 // all the goddamn notes (add for wider range of pieces)
 #define A3 6818
