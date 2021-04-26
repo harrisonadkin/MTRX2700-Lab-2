@@ -13,9 +13,12 @@
 ******************************************************************************/
 
 
-float buffer[bufferSize];
+float buffer1[bufferSize];
+float buffer2[bufferSize];
+float buffer3[bufferSize];
+float buffer4[bufferSize];
 
-void mathTimer(float * output){
+void mathTimer(float * output1, float * output2, float * output3, float * output4){
   volatile int a = 3;
   volatile long b = 1234567891;
   volatile float c = 1.2345;
@@ -27,7 +30,10 @@ void mathTimer(float * output){
   floatCalcs(c);
   doubleCalcs(d);
   //convertString(output);
-  memcpy(output, buffer, 24*sizeof(float));
+  memcpy(output1, buffer1, 6*sizeof(float));
+  memcpy(output2, buffer2, 6*sizeof(float));
+  memcpy(output3, buffer3, 6*sizeof(float));
+  memcpy(output4, buffer4, 6*sizeof(float));
 
 }
 
@@ -38,27 +44,27 @@ void intCalcs(volatile int a){
     
       time = TCNT;
       ans = a+a;
-      buffer[0] = calcTime(time)*(2/24.0);
+      buffer1[0] = calcTime(time)*(2/24.0);
       
       time = TCNT;
       ans = a*a;
-      buffer[1] = calcTime(time)*(2/24.0);
+      buffer1[1] = calcTime(time)*(2/24.0);
     
       time = TCNT;
       ans = a/a;
-      buffer[2] = calcTime(time)*(2/24.0);
+      buffer1[2] = calcTime(time)*(2/24.0);
 
       time = TCNT;
       ans = sqrt(a);
-      buffer[3] = calcTime(time)*(2/24.0);
+      buffer1[3] = calcTime(time)*(2/24.0);
       
       time = TCNT;
       ans = sin(a);
-      buffer[4] = calcTime(time)*(2/24.0);
+      buffer1[4] = calcTime(time)*(2/24.0);
       
       time = TCNT;
       ans = cos(a);
-      buffer[5] = calcTime(time)*(2/24.0); 
+      buffer1[5] = calcTime(time)*(2/24.0); 
 
 }
 
@@ -68,27 +74,27 @@ void longCalcs(volatile long b){
   
       time = TCNT;
       ans = b+b;
-      buffer[6] = calcTime(time)*(2/24.0);
+      buffer2[0] = calcTime(time)*(2/24.0);
 
       time = TCNT;
       ans = b*b;
-      buffer[7] = calcTime(time)*(2/24.0);
+      buffer2[1] = calcTime(time)*(2/24.0);
     
       time = TCNT;
       ans = b/b;
-      buffer[8] = calcTime(time)*(2/24.0);
+      buffer2[2] = calcTime(time)*(2/24.0);
 
       time = TCNT;
       ans = sqrt(b);
-      buffer[9] = calcTime(time)*(2/24.0);
+      buffer2[3] = calcTime(time)*(2/24.0);
       
       time = TCNT;
       ans = sin(b);
-      buffer[10] = calcTime(time)*(2/24.0);
+      buffer2[4] = calcTime(time)*(2/24.0);
 
       time = TCNT;
       ans = cos(b);
-      buffer[11] = calcTime(time)*(2/24.0);
+      buffer2[5] = calcTime(time)*(2/24.0);
    
 }
 
@@ -98,27 +104,27 @@ void floatCalcs(volatile float c){
   
       time = TCNT;
       ans = c+c;
-      buffer[12] = calcTime(time)*(2/24.0);
+      buffer3[0] = calcTime(time)*(2/24.0);
 
       time = TCNT;
       ans = c*c;
-      buffer[13] = calcTime(time)*(2/24.0);
+      buffer3[1] = calcTime(time)*(2/24.0);
                                        
       time = TCNT;
       ans = c/c;
-      buffer[14] = calcTime(time)*(2/24.0);
+      buffer3[2] = calcTime(time)*(2/24.0);
 
       time = TCNT;
       ans = sqrt(c);
-      buffer[15] = calcTime(time)*(2/24.0);
+      buffer3[3] = calcTime(time)*(2/24.0);
       
       time = TCNT;
       ans = sin(c);
-      buffer[16] = calcTime(time)*(2/24.0);
+      buffer3[4] = calcTime(time)*(2/24.0);
       
       time = TCNT;
       ans = cos(c);
-      buffer[17] = calcTime(time)*(2/24.0);
+      buffer3[5] = calcTime(time)*(2/24.0);
    
 }
 
@@ -128,27 +134,27 @@ void doubleCalcs(volatile double d){
   
       time = TCNT;
       ans = d+d;
-      buffer[18] = calcTime(time)*(2/24.0);
+      buffer4[0] = calcTime(time)*(2/24.0);
 
       time = TCNT;
       ans = d*d;
-      buffer[19] = calcTime(time)*(2/24.0);
+      buffer4[1] = calcTime(time)*(2/24.0);
     
       time = TCNT;
       ans = d/d;
-      buffer[20] = calcTime(time)*(2/24.0);
+      buffer4[2] = calcTime(time)*(2/24.0);
 
       time = TCNT;
       ans = sqrt(d);
-      buffer[21] = calcTime(time)*(2/24.0);
+      buffer4[3] = calcTime(time)*(2/24.0);
       
       time = TCNT;
       ans = sin(d);
-      buffer[22] = calcTime(time)*(2/24.0);
+      buffer4[4] = calcTime(time)*(2/24.0);
       
       time = TCNT;
       ans = cos(d);
-      buffer[23] = calcTime(time)*(2/24.0);
+      buffer4[5] = calcTime(time)*(2/24.0);
    
 }
 

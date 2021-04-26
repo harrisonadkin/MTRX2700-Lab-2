@@ -13,7 +13,6 @@ void Init_TC5 (void) {
   TIOS |= 0b00100000;   // channel 5 to output compare, rest for input capture 
   TCTL1 = 0b00000100;   // channel 5 to toggle OCx output line
   TIE  |= 0b00100000;   // channel 5 timer interrupt enable 
-  EnableInterrupts;
   
 }
 

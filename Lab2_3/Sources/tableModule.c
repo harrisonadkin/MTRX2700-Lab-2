@@ -16,10 +16,10 @@
 *                                                                             *
 ******************************************************************************/
 
-float output[bufferSize];
+
 int i = 0;
 char heading[16] = "   \0";
-char str[100]; 
+char str[16]; 
 char *writeString = &str[0]; 
 
 
@@ -31,9 +31,10 @@ void createTable (void){
   
   
   
- /* for(i = 0; i < 6; i++){
+  //for(i = 0; i < 6; i++){
   
-  if(i==0){
+ 
+ /* if(i==0){
     serialInitialise(156, SCI1, WRITE, &heading);
     sprintf(heading, "%s","INT            \0");
     serialInitialise(156, SCI1, WRITE, &heading);
@@ -45,12 +46,12 @@ void createTable (void){
     serialInitialise(156, SCI1, WRITE, &heading);
     
 
-  }
-  }  */
+  } */
+  //}  
   
   
   for(i = 0; i < 24; i++){
-    sprintf(&str[0], "%8.2lf | \0", output[i]);
+    sprintf(&str[0], "%8.2lf | \r\n\0", output[i]);
     serialInitialise(156, SCI1, WRITE, &str[0]);
   }
-}
+}  

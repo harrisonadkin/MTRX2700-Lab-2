@@ -41,7 +41,7 @@ void serialInitialise(int baudRate, int interface, int function, unsigned char *
     }
   
     while(runCondition){
-        //_FEED_COP(); // BYJORK
+        _FEED_COP(); // BYJORK
     }                        
 }
 
@@ -85,11 +85,11 @@ void writeSerial(void){
       
     } else if(newSerial.interface == 1){
           statusRegister = SCI1SR1;
-          SCI1DRL = outputString[index];
+          SCI1DRL = *(outputString + index);
       
     }
 
-    if(inputString[index] == 0){
+    if(outputString[index] == 0){
           resetSerial();
     
     } else{

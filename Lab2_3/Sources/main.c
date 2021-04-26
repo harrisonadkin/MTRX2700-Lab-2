@@ -7,30 +7,40 @@
 #include "musicModule.h"
 #include "mathModule.h"
 #include "serialModule.h"
-#include "tableModule.h"
 #include "globals.h"
 
 
+  
 
- 
-    
+float intTimes[bufferSize];
+float longTimes[bufferSize];
+float floatTimes[bufferSize];
+float doubleTimes[bufferSize];
 
-unsigned char * example;
-unsigned char * transmit_string = "BYORK\r\n\0";
  
 
 void main(void) {
   /* put your own code here */
+  unsigned char *readString = 0;
+  char *writeString2 = "Playing Jupiter\r\n\0";
+  char *writeString1 = "Reading Math\r\n\0";
  
-  //serialInitialise(156,SCI1,READ,&example);
-  //serialInitialise(156,SCI1,WRITE,&example);
-  //serialInitialise(156,SCI1,WRITE,&transmit_string);
+ 
+  EnableInterrupts;
+  serialInitialise(156,SCI1,READ,&readString);
+  serialInitialise(156,SCI1,WRITE,&readString);
+  serialInitialise(156,SCI1,WRITE,&writeString1);
   
-   createTable();
+  Init_Math();
+  mathTimer(intTimes, longTimes, floatTimes, doubleTimes);
   
   
-  //Init_TC5();                 // initialise registers for buzzer	
-  //scoreFunc(); 
+  serialInitialise(156,SCI1,READ,&readString);
+  serialInitialise(156,SCI1,WRITE,&readString);
+  serialInitialise(156,SCI1,WRITE,&writeString2);
+  
+  Init_TC5();                 // initialise registers for buzzer	
+  scoreFunc(); 
    
 
   while(1){                   // BJORK the swedish dog

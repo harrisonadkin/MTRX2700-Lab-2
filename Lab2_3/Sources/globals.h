@@ -8,7 +8,7 @@ static int READ  = 0;
 static int WRITE = 1;
 static int SCI1  = 1;
 static int SCI0  = 0;
-#define bufferSize 24
+#define bufferSize 6
 
 
 
