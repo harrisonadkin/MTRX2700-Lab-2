@@ -152,9 +152,6 @@ void doubleCalcs(volatile double d){
    
 }
 
-void convertString(float * output){
-  //using sprintf to convert string of floats to chars to print in printing module
-  
-}
+
 
 

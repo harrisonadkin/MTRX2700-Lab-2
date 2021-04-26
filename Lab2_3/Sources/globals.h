@@ -4,6 +4,10 @@
 // variables to be changed in interrupts
 extern int frequency;
 extern int flag;
+static int READ  = 0;
+static int WRITE = 1;
+static int SCI1  = 1;
+static int SCI0  = 0;
 #define bufferSize 24
 
 

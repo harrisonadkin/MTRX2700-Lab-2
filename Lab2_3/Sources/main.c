@@ -7,24 +7,26 @@
 #include "musicModule.h"
 #include "mathModule.h"
 #include "serialModule.h"
+#include "tableModule.h"
 #include "globals.h"
 
 
 
  
     
-float output[bufferSize];
-char * example[100];
-int * example_size;
+
+unsigned char * example;
+unsigned char * transmit_string = "BYORK\r\n\0";
  
 
 void main(void) {
   /* put your own code here */
  
-  serialInitialise(156,0,0,example,example_size);
+  //serialInitialise(156,SCI1,READ,&example);
+  //serialInitialise(156,SCI1,WRITE,&example);
+  //serialInitialise(156,SCI1,WRITE,&transmit_string);
   
-  //Init_Math();                  // initialise registers for timer
-  //mathTimer(output);
+   createTable();
   
   
   //Init_TC5();                 // initialise registers for buzzer	

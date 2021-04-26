@@ -7,7 +7,6 @@ void intCalcs(volatile int a);
 void longCalcs(volatile long b);
 void floatCalcs(volatile float c);
 void doubleCalcs(volatile double d);
-void convertString(float * output);
 
 
 #endif

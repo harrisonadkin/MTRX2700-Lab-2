@@ -16,16 +16,15 @@
 ******************************************************************************/
 
 Serial newSerial;
-int i = 0;
+int index = 0;
 int runCondition;
 unsigned char inputString[255];
 unsigned char *outputString;
 unsigned char statusRegister;
 
 
-void serialInitialise(int baudRate, int interface, int function, unsigned char ** dataLocation, int ** stringLen){
-    EnableInterrupts;
-    if (i == 0) {
+void serialInitialise(int baudRate, int interface, int function, unsigned char ** dataLocation){
+    if (index == 0) {
       runCondition = 1;
       newSerial.function = function;
       newSerial.interface = interface;
@@ -33,43 +32,31 @@ void serialInitialise(int baudRate, int interface, int function, unsigned char *
       
       if(newSerial.function == 0){
         *dataLocation = &inputString[0];
-        *stringLen = &i;
 
       } else if(newSerial.function == 1){
         outputString = *dataLocation;
-      
       }
-      
-      setBaud();
+
       setControl();
-
-      }else{
-        while(runCondition == 1){
-        _FEED_COP(); // BYJORK
-        }
-      }                
-      
-
+    }
+  
+    while(runCondition){
+        //_FEED_COP(); // BYJORK
+    }                        
 }
 
-void setBaud(void){
-    unsigned char * baudRate1;
-    
-    if(newSerial.interface == 0){
-        //baudRate1 = &SCI0BDL;
-        
-     } else if(newSerial.interface == 1){
-        baudRate1 = &SCI1BDL;
-     }
-     
-   * baudRate1 = newSerial.baudRate; 
-}
 
 void setControl(void){
+   if(newSerial.interface == 0){
+      //SCI0BDL = newSerial.baudRate;
+   }else if (newSerial.interface == 1){
+      SCI1BDL = newSerial.baudRate;
+   }
+   
    if(newSerial.function == 0){
       if(newSerial.interface == 0){
-          //SCI0CR2 |= SCI0CR2_RIE_MASK;
-          //SCI0CR2 |= SCI0CR2_RE_MASK;
+         // SCI0CR2 |= SCI0CR2_RIE_MASK;
+         // SCI0CR2 |= SCI0CR2_RE_MASK;
       
       } else if(newSerial.interface == 1){
           SCI1CR2 |= SCI1CR2_RIE_MASK;
@@ -79,8 +66,8 @@ void setControl(void){
         
    } else if(newSerial.function == 1){
       if(newSerial.interface == 0){
-          //SCI0CR2 |= SCI0CR2_SCTIE_MASK;
-          //SCI0CR2 |= SCI0CR2_TE_MASK;
+         // SCI0CR2 |= SCI0CR2_SCTIE_MASK;
+         // SCI0CR2 |= SCI0CR2_TE_MASK;
       
       } else if(newSerial.interface == 1){
           SCI1CR2 |= SCI1CR2_SCTIE_MASK;
@@ -88,62 +75,61 @@ void setControl(void){
       
       }
    } 
-
 }
 
 void writeSerial(void){
-    
+
     if(newSerial.interface == 0){
-          //statusRegister = SCI0SR1;
-          //SCI0DRL = *(outputString + i);
+        //  statusRegister = SCI0SR1;
+        //  SCI0DRL = outputString[index];
       
     } else if(newSerial.interface == 1){
           statusRegister = SCI1SR1;
-          SCI1DRL = *(outputString + i);
+          SCI1DRL = outputString[index];
       
     }
 
-    if(outputString[i] == 0){
+    if(inputString[index] == 0){
           resetSerial();
     
     } else{
-          i++;
-    
+          index++;
     }
 }
 
 void readSerial(void){
 
    if(newSerial.interface == 0){
-          //statusRegister = SCI0SR1;
-          //inputString[i] = SCI0DRL;
+        //  statusRegister = SCI0SR1;
+        //  inputString[index] = SCI0DRL;
       
    } else if(newSerial.interface == 1){
           statusRegister = SCI1SR1;
-          inputString[i] = SCI1DRL;
+          inputString[index] = SCI1DRL;
       
    } 
 
-   if(inputString[i] == 13){
-          i++;
-          inputString[i] = '\n';
-          i++;
-          inputString[i] = '\0';
+   if(inputString[index] == 13){
+          index++;
+          inputString[index] = '\n';
+          index++;
+          inputString[index] = '\0';
           
           resetSerial();
     
    } else{
-          i++;
+          index++;
     
    }
 }
 
 void resetSerial(void){
     
-    i = 0;
+    index = 0;
     //SCI0CR2 = 0;
     SCI1CR2 = 0;
     runCondition = 0;
+    
 }
 
 // initialising SCI0 interrupt
@@ -157,7 +143,7 @@ __interrupt void SCI0_ISR(void) {
           writeSerial();
   
     }
-}*/ 
+} */
 
 // initialising SCI1 interrupt
 #pragma CODE_SEG __NEAR_SEG NON_BANKED 

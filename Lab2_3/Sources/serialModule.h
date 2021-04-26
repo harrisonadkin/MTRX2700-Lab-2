@@ -8,8 +8,7 @@ typedef struct {
   int baudRate;
 }Serial;
 
-void serialInitialise(int baudRate, int interface, int function, unsigned char ** dataLocation, int ** stringLen);
-void setBaud(void);
+void serialInitialise(int baudRate, int interface, int function, unsigned char ** dataLocation);
 void setControl(void);
 void readSerial(void);
 void writeSerial(void);
