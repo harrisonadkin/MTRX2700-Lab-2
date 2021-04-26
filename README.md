@@ -32,5 +32,4 @@ E-clock = 24mHz
 	-for example int addition
 		-time taken calculated by func above, using TCNT as input 
 		- f= e-clk/presclaer
-		-time taken * (2/24mHz)
 	-do the same thing for other operations and datatypes
