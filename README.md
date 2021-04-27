@@ -33,3 +33,4 @@ E-clock = 24mHz
 		-time taken calculated by func above, using TCNT as input 
 		- f= e-clk/presclaer
 	-do the same thing for other operations and datatypes
+	-the use of memcpy: sending stuffs in buffer array to mian.c
