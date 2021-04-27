@@ -12,7 +12,7 @@ static int SCI0  = 0;
 
 
 
-// all the goddamn notes (add for wider range of pieces)
+// all the notes (add for wider range of pieces)
 #define A3 6818
 #define B3 6074
 #define C3 11467

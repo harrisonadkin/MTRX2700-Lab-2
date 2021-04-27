@@ -34,12 +34,12 @@ void clearTOF(void){
   TOFcount = 0;
 }
 
-//function that uses overflow to calc clock cycles
+// function that uses overflow to calc clock cycles
 unsigned long calcTime(unsigned int time){
   unsigned long timeTaken;
   timeTaken = (TCNT - time + TOFcount*65536);
   clearTOF();
-  return timeTaken;  
+  return timeTaken; // units - clock cycles  
 }
 
 // initialising channel 5 interrupt
@@ -53,7 +53,7 @@ __interrupt void TC5_ISR(void) {
 #pragma CODE_SEG __NEAR_SEG NON_BANKED 
 __interrupt void TOF_ISR(void) { 
   
-  TOFcount += 1;
+  TOFcount += 1;       // Increment overflow count
   TFLG2 |= 0b10000000; //reset flag 
 } 
 

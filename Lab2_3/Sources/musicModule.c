@@ -21,6 +21,9 @@ int notesRemaining;
    // example score: Jupiter theme [THE PLANETS] in b flat 
    // current notes only across scales 3,4,5. No flats or sharps.
    // duration is value multiplied by 10ms. 100 = 1s of note. 
+   
+   
+  // All the scores used have predefined frequency values (defined in globals.h)
   unsigned int score[] = {
     A3,C4,D4,ZZ,D4,F4,E4,C4,F4,G4,F4,E4,D4,E4,D4,C4,A3,
     ZZ,A3,C4,D4,ZZ,D4,F4,E4,C4,F4,G4,A4,ZZ,A4,ZZ,A4,G4,F4,G4,F4,
