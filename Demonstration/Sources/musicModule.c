@@ -32,9 +32,9 @@ int notesRemaining;
     50,50,100,3,100,50,50,100,100,50,50,100,3,100,50,50,200,
     3,50,50,100,100,100,100,100,100,50,50,100,100,200,0};
 
-void scoreFunc(void){    
+int scoreFunc(void){    
   playnote(score, duration); // pass score and duration pointers into play function
-
+	return flag;
 }
 
 // delay function given integer duration (multiplies by 10ms) and delays that amount
