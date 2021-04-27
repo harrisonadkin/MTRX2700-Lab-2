@@ -36,8 +36,10 @@ The compiler helps convert C to machine readable language, and it allows functio
 
 ### Testing Procedure:
 -The math function is best tested through an initial compile and run, and a comparison of values to logic. The output range for integer addition, for example, should be in the range of ~1ms. 
--Testing of this module should utilise stepping, to check through each individual math function and ensure the correct parsing of arrays. Note that a buffer array is initialised in the scope of the math function and copied to the inputted solution array from main. For this to correctly work, we must ensure the correct parsing of the pointer to the solution array from main (utilise heading file to type check), as well as the correct use of the memcpy function. 
-#### Finally, ensure that the time calculation function is working as intended by stepping through it accurately.
+
+-Testing of this module should utilise stepping, to check through each individual math function and ensure the correct parsing of arrays. Note that a buffer array is initialised in the scope of the math function and copied to the inputted solution array from main. For this to correctly work, we must ensure the correct parsing of the pointer to the solution array from main (utilise heading file to type check), as well as the correct use of the memcpy function.
+
+-Finally, ensure that the time calculation function is working as intended by stepping through it accurately.
  
 
 ## Exercise 2 Serial with interrupts
