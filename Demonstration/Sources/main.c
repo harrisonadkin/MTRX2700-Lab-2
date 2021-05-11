@@ -24,6 +24,8 @@ void main(void) {
   unsigned char *readString = 0;
   char *writeString2 = "Playing Jupiter\r\n\0";
   char *writeString1 = "Reading Math\r\n\0";
+  int response;
+  char *flagSet = "Song Completed\r\n\0";
  
  
   EnableInterrupts;
@@ -40,8 +42,11 @@ void main(void) {
   serialInitialise(156,SCI1,WRITE,&writeString2);
   
   Init_TC5();                 // initialise registers for buzzer	
-  scoreFunc(); 
-   
+  response = scoreFunc(); 
+  if (response == 1)
+  {
+  		serialInitialise(156,SCI1,WRITE,&flagSet);	
+  }
 
   while(1){                   // BJORK the swedish dog
   

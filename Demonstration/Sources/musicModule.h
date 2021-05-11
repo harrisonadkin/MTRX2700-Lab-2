@@ -4,6 +4,6 @@
 // Music Module Functions
 void delay10ms(int duration);
 void playnote(unsigned int * score, unsigned int * duration);
-void scoreFunc(void);
+int scoreFunc(void);
 
 #endif
